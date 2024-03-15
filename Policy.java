@@ -12,6 +12,7 @@ public class Policy
    private double weight;
    
    //default no-arg Constructor
+   
    public Policy()
    {
       number = 0;
@@ -39,7 +40,8 @@ public class Policy
    
    }
    
-   //creating GETTER Methods for each variable
+   //Beginning of Getter Methods
+   
    public int getNumber (){
       return number;
    }
@@ -72,8 +74,10 @@ public class Policy
       return weight;
    }
    
-   //creating SETTER Methods for each variable
+   //Beginning of Setter Methods
+   
    public void setNumber(int x){ //"x" is only visible inside this method and makes typing everything easier and faster.
+      number = x;
    }
    
    public void setProvider(String x){
@@ -104,16 +108,25 @@ public class Policy
        weight = x;
    }   
    
-   //calculateBMI method
+   /**
+      This method will calculate BMI using the person's weight and height
+   
+      @return The value calculated from the BMI formula
+   */
+   
    public double calculateBMI(){
       double bmi = (weight * 703) / (height * height);
       return bmi;
    }
    
-   //calculate insurance price method
+   /**
+      This method will calculate the price of the policy based on age, smoking status, and BMI. 
+      
+      @return The policy price
+   */
    public double calculatePrice(){
       double price = 600.0;
-      double BMI = calculateBMI(); //calling calculateBMI() method so that using the returned value is easier to read when calculating the additional fee.
+      double BMI = calculateBMI(); //calling the calculateBMI() method makes it easier to read when calculating the additional fee.
       
       if (age > 50){
          price = price + 75.0;   
