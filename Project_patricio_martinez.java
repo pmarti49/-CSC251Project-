@@ -41,6 +41,9 @@ class Project_patricio_martinez
       double height;
       double weight;
       
+      //Variables to count number of smokers and non-smokers
+      int smokers = 0;
+      int nonSmokers = 0;
       
       //spaceDiver is the amount of lines until a space is shown in the .txt file. The space separates each Policy Holder's information. 
       final int spaceDivider = 9;
@@ -63,6 +66,15 @@ class Project_patricio_martinez
                smokingStatus = policyInformation.get(infoIndex + 5);
                height = Double.parseDouble(policyInformation.get(infoIndex + 6));
                weight = Double.parseDouble(policyInformation.get(infoIndex + 7));
+               
+               if(policyInformation.get(infoIndex + 5).equalsIgnoreCase("Smoker"))
+               {
+                  smokers++;
+               }
+               if(policyInformation.get(infoIndex + 5).equalsIgnoreCase("Non-Smoker"))
+               {
+                  nonSmokers++;
+               }
                
                //Creating new Policy object and saving it to the PolicyHolders ArrayList.
                policyHolders.add(new Policy(number, providerName, firstName, lastName, age, smokingStatus, height, weight));
@@ -102,6 +114,9 @@ class Project_patricio_martinez
          System.out.println("Policy Price: $" + price);
          System.out.println("");
       }
+      
+      System.out.println("The number of policies with a smoker is: " + smokers);
+      System.out.println("The number of policies with a non-smoker is: " + nonSmokers);
       
       
      
